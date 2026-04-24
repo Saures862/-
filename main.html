@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск Осколка Звезды</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+<!-- Контейнер для шкалы здоровья -->
+<div
+  style="width: 100%; background-color: #555; border-radius: 10px; margin-bottom: 20px;"
+>
+  <!-- Сама "живая" полоска. id нужен для управления шириной из JS -->
+  <div
+    id="hpBar"
+    style="width: 100%; height: 20px; background-color: #32CD32; border-radius: 10px; transition: width 0.3s; text-align: center; color: white; font-size: 14px; font-weight: bold; line-height: 20px;"
+  >
+    100%
+  </div>
+</div>
+        <h1>Поиск Осколка Звезды</h1>
+<!-- span с уникальным id нужен как "якорь" для вставки значения из JS -->
+<p style="color: #32CD32; font-weight: bold;">
+  Успешных прохождений: <span id="winCount">0</span>
+</p>
+        <p>Ты — странствующий искатель приключений. Долгие месяцы ты искал легендарный Осколок Звезды, артефакт,
+            исполняющий одно любое желание. Твой путь привел тебя к подножию Мглистых Гор. Солнце садится, и тебе нужно
+            найти укрытие, но также ты чувствуешь магическую пульсацию. Перед тобой два пути.</p>
+        <div class="choices">
+            <a href="forest.html" class="choice">
+                <!-- Картинка леса -->
+                <img src="https://avatars.mds.yandex.net/i?id=08bb6f1a629d4eff16b2122071ebd90b_l-5434958-images-thumbs&n=13" alt="Лес">
+                <span>Идти в Лес</span>
+            </a>
+            <a href="cave.html" class="choice">
+                <!-- Картинка пещеры -->
+                <img src="https://avatars.mds.yandex.net/get-shedevrum/14887244/img_8a13e3825f5811f098f2ceaf04b5ef38/orig" alt="Пещера">
+                <span>Идти в Пещеру</span>
+            </a>
+        </div>
+    </div>
+<!-- Тег audio загружает звуковой файл. 
+     Атрибут loop заставляет музыку играть по кругу. 
+     Атрибут id нужен, чтобы мы могли обращаться к элементу из JavaScript -->
+<audio id="bgMusic" loop>
+  <source
+    src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+    type="audio/mpeg"
+  />
+</audio>
+
+<!-- Кнопка для управления звуком. По умолчанию звук считаем выключенным до действий пользователя -->
+<button id="muteBtn" class="mute-button">🔇 Звук выключен</button>
+
+<!-- Подключаем наш будущий файл с логикой JavaScript -->
+<script src="script.js"></script>
+<script>
+  localStorage.setItem('playerHP', 100);
+</script>
+
+</body>
+
+</html>

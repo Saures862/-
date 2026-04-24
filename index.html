@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск Осколка Звезды</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+<!-- Контейнер для шкалы здоровья -->
+<div
+  style="width: 100%; background-color: #555; border-radius: 10px; margin-bottom: 20px;"
+>
+  <!-- Сама "живая" полоска. id нужен для управления шириной из JS -->
+  <div
+    id="hpBar"
+    style="width: 100%; height: 20px; background-color: #32CD32; border-radius: 10px; transition: width 0.3s; text-align: center; color: white; font-size: 14px; font-weight: bold; line-height: 20px;"
+  >
+    100%
+  </div>
+</div>
+        <h1>"Библиотека Приключений"</h1>
+<!-- span с уникальным id нужен как "якорь" для вставки значения из JS -->
+<p style="color: #32CD32; font-weight: bold;">
+  Успешных прохождений: <span id="winCount">0</span>
+</p>
+        <p>Ты — странствующий искатель приключений.Перед тобой два пути.Выбирай в какое приключение ты отправишься,в каждом из них полно опасностей,но мы верим что  ты справишься удачи!!!</p>
+       <div class="choices">
+  <!-- Ссылка на первый (уже готовый) квест -->
+  <a href="main.html" class="choice">
+    <img
+      src=https://avatars.mds.yandex.net/i?id=50fcb367dc0a251c91c0e9a376db31b1_l-4013935-images-thumbs&n=13 text=Квест+1"
+      alt="Пески времени"
+    />
+    <span>Поиск Осколка Звезды</span>
+  </a>
+
+  <!-- Ссылка на начало второго (нового) квеста -->
+  <a href="space_start.html" class="choice">
+    <img
+      src=https://avatars.mds.yandex.net/get-shedevrum/16293477/img_c55fc659505c11f0b0bc661b4d276305/orig text=Квест+2"
+      alt="Космос"
+    />
+    <span>Миссия на Космической Станции</span>
+  </a>
+</div>
+
+    </div>
+<!-- Тег audio загружает звуковой файл. 
+     Атрибут loop заставляет музыку играть по кругу. 
+     Атрибут id нужен, чтобы мы могли обращаться к элементу из JavaScript -->
+<audio id="bgMusic" loop>
+  <source
+    src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+    type="audio/mpeg"
+  />
+</audio>
+
+<!-- Кнопка для управления звуком. По умолчанию звук считаем выключенным до действий пользователя -->
+<button id="muteBtn" class="mute-button">🔇 Звук выключен</button>
+
+<!-- Подключаем наш будущий файл с логикой JavaScript -->
+<script src="script.js"></script>
+<script>
+  localStorage.setItem('playerHP', 100);
+</script>
+
+<script>
+// не забывайте очищать сумку:
+localStorage.setItem("playerInventory", "[]");
+</script>
+
+</body>
+
+</html>

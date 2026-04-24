@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Благодарность гоблина</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+<!-- Контейнер для шкалы здоровья -->
+<div
+  style="width: 100%; background-color: #555; border-radius: 10px; margin-bottom: 20px;"
+>
+  <!-- Сама "живая" полоска. id нужен для управления шириной из JS -->
+  <div
+    id="hpBar"
+    style="width: 100%; height: 20px; background-color: #32CD32; border-radius: 10px; transition: width 0.3s; text-align: center; color: white; font-size: 14px; font-weight: bold; line-height: 20px;"
+  >
+    100%
+  </div>
+</div>
+        <h1>Благодарность гоблина</h1>
+        <p>Ты перевязываешь гоблину рану и отпугиваешь волков факелом. Гоблин, кланяясь, отдает тебе свой магический
+            компас. "Он ведет к падающей звезде!" — пищит он. Компас показывает два направления: одно указывает на
+            заброшенную башню, другое — на старый колодец.</p>
+        <div class="choices">
+            <a href="victory.html" class="choice">
+                <img src="https://avatars.mds.yandex.net/get-shedevrum/12800065/img_24d93e4dfe7f11eea24b9a1c9029de6d/orig" alt="Башня">
+                <span>Идти к Башне</span>
+            </a>
+            <a href="trap.html" class="choice">
+                <img src="https://avatars.mds.yandex.net/get-shedevrum/12896721/img_3c7978582a4011efa144eaa30d96aef9/orig" alt="Колодец">
+                <span>Спуститься в Колодец</span>
+            </a>
+        </div>
+    </div>
+<!-- Тег audio загружает звуковой файл. 
+     Атрибут loop заставляет музыку играть по кругу. 
+     Атрибут id нужен, чтобы мы могли обращаться к элементу из JavaScript -->
+<audio id="bgMusic" loop>
+  <source
+    src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+    type="audio/mpeg"
+  />
+</audio>
+
+<!-- Кнопка для управления звуком. По умолчанию звук считаем выключенным до действий пользователя -->
+<button id="muteBtn" class="mute-button">🔇 Звук выключен</button>
+
+<!-- Подключаем наш будущий файл с логикой JavaScript -->
+<script src="script.js"></script>
+
+<script>
+  // Как только игрок заходит на эту страницу — предмет добавляется в массив
+  addItem("Магический компас");
+</script>
+
+</body>
+
+</html>
